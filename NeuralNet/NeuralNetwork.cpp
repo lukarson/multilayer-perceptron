@@ -17,7 +17,7 @@ NeuralNetwork::NeuralNetwork(vector<int> top, double bias, double learnRate)
 
 	for (int i = 0; i < (topologySize - 1); i++)
 	{
-		Matrix* m = new Matrix(topology.at(i), topology.at(i + 1), true); //generacja losowych wartoœci wag
+		Matrix* m = new Matrix(topology.at(i), topology.at(i + 1), true); //generacja losowych wartoï¿½ci wag
 		weightMatrices.push_back(m);
 	}
 
@@ -72,7 +72,7 @@ void NeuralNetwork::BackPropagation()
 	//Policzenie propagacji dla warstwy LastHidden <----- Output
 	
 	
-	//policzenie wektora gradientów warstw output i ostatniej hidden G = Z' * E ; E = (y - yHat)
+	//policzenie wektora gradientï¿½w warstw output i ostatniej hidden G = Z' * E ; E = (y - yHat)
 	for (unsigned int i = 0; i < errorVector.size(); i++)
 	{
 		double der = derivedValuesYToZ->GetValue(0, i);
@@ -153,11 +153,11 @@ void NeuralNetwork::BackPropagation()
 		Matrix* deltaWeights = new Matrix(0, 0, false);
 		deltaWeights = deltaWeights->MultiplyMatrix(leftNeurons->Transpose(), derivedGradients);
 
-		//kopia deltaWeights przechowuj¹ca nowe wagi
+		//kopia deltaWeights przechowujï¿½ca nowe wagi
 		Matrix* newWeightsHidden = new Matrix(deltaWeights->GetNumOfRows(), deltaWeights->GetNumOfColumns(), false);
 
 		
-		//policzenie ró¿nicy (jak w kroku 1)
+		//policzenie rï¿½nicy (jak w kroku 1)
 		for (int r = 0; r < deltaWeights->GetNumOfRows(); r++)
 		{
 			for (int c = 0; c < deltaWeights->GetNumOfColumns(); c++)
@@ -198,14 +198,6 @@ void NeuralNetwork::PrintNetwork()
 			cout << endl;
 			m->PrintMatrix();
 		}
-
-		/* cout << "---------------------------------------" << endl;
-		if (i < layers.size() - 1)
-		{
-			cout << "Weights for Layer " << i << endl;
-			GetWeightMatrix(i)->PrintMatrix();
-		}
-		cout << "---------------------------------------" << endl; */
 	}
 }
 

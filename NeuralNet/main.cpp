@@ -50,6 +50,8 @@ int main()
 		}
 
 		neuNet->PrintNetwork();	
+		cout << endl << "Press 'enter' to start again or type 'q' to quit." << endl;
+		fflush(stdin);
 		breaker = getchar();
 	}
 
